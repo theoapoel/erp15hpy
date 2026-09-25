@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../../../tmp/tmp-3161823-rIMwEiVLNOss/hpy/hpy/public/scss/hpy_web.bundle.css"],
+  "sourcesContent": ["/* HPY navbar branding override (website / login / portal) */\n.navbar.navbar-light {\n  background: linear-gradient(-90deg, #ffd200 0%, #f7941e 100%) !important;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;\n}\n\n.navbar.navbar-light .navbar-brand,\n.navbar.navbar-light .nav-link,\n.navbar.navbar-light .navbar-toggler,\n.navbar.navbar-light svg {\n  color: #1a1a1a !important;\n  fill: #1a1a1a !important;\n}\n\n/* Hide the website/portal footer (Standard Footer web template). */\n.web-footer {\n  display: none !important;\n}\n\n/* enlarge the app logo above the login form (core default is a cramped max-height: 42px) */\n.page-card-head img {\n  max-height: 80px !important;\n  width: auto !important;\n}"],
+  "mappings": "AACA,qBACE,qEACA,kDAGF,gIAIE,wBACA,uBAIF,YACE,uBAIF,oBACE,0BACA",
+  "names": []
+}

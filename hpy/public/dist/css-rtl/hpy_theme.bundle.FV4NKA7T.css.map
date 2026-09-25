@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../../../tmp/tmp-3161823-rIMwEiVLNOss/hpy/hpy/public/scss/hpy_theme.bundle.css"],
+  "sourcesContent": ["/* HPY navbar branding override (desk) */\n:root {\n  --navbar-bg: #ffc107;\n}\n\n/* gradient painted directly on the navbar; --navbar-bg stays solid as fallback */\nheader.navbar {\n  background: linear-gradient(-90deg, #ffd200 0%, #f7941e 100%) !important;\n}\n\n/* keep navbar text/icons readable on the amber background */\n.navbar .navbar-nav .nav-link,\n.navbar .app-logo,\n.navbar .navbar-brand,\n.navbar .navbar-icon-container,\n.navbar svg {\n  color: #1a1a1a !important;\n  fill: #1a1a1a !important;\n}\n\n/* hide the Help menu in the navbar */\n.navbar .dropdown-help {\n  display: none !important;\n}\n\n/* enlarge the app logo in the desk topbar (core caps it at 24px width / 28px max-height) */\n.navbar .app-logo,\n.navbar .navbar-home img,\n.navbar-home .app-logo {\n  width: 44px !important;\n  height: 44px !important;\n  max-height: 44px !important;\n  -o-object-fit: contain !important;\n     object-fit: contain !important;\n}\n\n.navbar-home {\n  height: var(--navbar-height) !important;\n  display: flex !important;\n  align-items: center !important;\n}"],
+  "mappings": "AACA,MACE,qBAIF,cACE,qEAIF,iHAKE,wBACA,uBAIF,uBACE,uBAIF,kEAGE,qBACA,sBACA,0BACA,gCACG,6BAGL,aACE,sCACA,uBACA",
+  "names": []
+}

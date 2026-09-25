@@ -1,0 +1,13 @@
+// HPY brand colors — change here to restyle both desk and website navbars.
+
+// Solid fallback. Must stay a plain color: Frappe also feeds --navbar-bg into
+// `background-color` rules (theme switcher, mobile nav) which reject gradients.
+$hpy-navbar-bg: #ffc107;
+
+// Gradient actually painted on the navbar. Tweak the stops/angle freely.
+$hpy-navbar-bg-start: #ffd200;
+$hpy-navbar-bg-end: #f7941e;
+$hpy-navbar-gradient: linear-gradient(90deg, $hpy-navbar-bg-start 0%, $hpy-navbar-bg-end 100%);
+
+// Text and icon color drawn on top of the navbar.
+$hpy-navbar-fg: #1a1a1a;

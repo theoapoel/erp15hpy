@@ -1,0 +1,26 @@
+@import "hpy_brand";
+
+/* HPY navbar branding override (website / login / portal) */
+.navbar.navbar-light {
+	background: $hpy-navbar-gradient !important;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.navbar.navbar-light .navbar-brand,
+.navbar.navbar-light .nav-link,
+.navbar.navbar-light .navbar-toggler,
+.navbar.navbar-light svg {
+	color: $hpy-navbar-fg !important;
+	fill: $hpy-navbar-fg !important;
+}
+
+/* Hide the website/portal footer (Standard Footer web template). */
+.web-footer {
+	display: none !important;
+}
+
+/* enlarge the app logo above the login form (core default is a cramped max-height: 42px) */
+.page-card-head img {
+	max-height: 80px !important;
+	width: auto !important;
+}

@@ -1,0 +1,42 @@
+@import "hpy_brand";
+
+/* HPY navbar branding override (desk) */
+:root {
+	--navbar-bg: #{$hpy-navbar-bg};
+}
+
+/* gradient painted directly on the navbar; --navbar-bg stays solid as fallback */
+header.navbar {
+	background: $hpy-navbar-gradient !important;
+}
+
+/* keep navbar text/icons readable on the amber background */
+.navbar .navbar-nav .nav-link,
+.navbar .app-logo,
+.navbar .navbar-brand,
+.navbar .navbar-icon-container,
+.navbar svg {
+	color: $hpy-navbar-fg !important;
+	fill: $hpy-navbar-fg !important;
+}
+
+/* hide the Help menu in the navbar */
+.navbar .dropdown-help {
+	display: none !important;
+}
+
+/* enlarge the app logo in the desk topbar (core caps it at 24px width / 28px max-height) */
+.navbar .app-logo,
+.navbar .navbar-home img,
+.navbar-home .app-logo {
+	width: 44px !important;
+	height: 44px !important;
+	max-height: 44px !important;
+	object-fit: contain !important;
+}
+
+.navbar-home {
+	height: var(--navbar-height) !important;
+	display: flex !important;
+	align-items: center !important;
+}
