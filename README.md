@@ -6,7 +6,7 @@ HPY custom branding and tweaks for ERPNext v15 (navbar theme, translations that 
 
 - **Colors**: orange navbar gradient (`hpy_theme.bundle.css`, `hpy_web.bundle.css`) — applied automatically to desk and website once installed and built.
 - **Text/captions**: translation overrides in `hpy/translations/en.csv` rename a few default strings, e.g. "ERPNext Settings" → "HPY Settings", "ERPNext Integrations" → "HPY Integrations" — applied automatically once installed.
-- **Logo**: **not** included in this app. The logo images (`hpy2.png` for app logo, `lobar.png` for navbar brand) and the `Website Settings` (`app_logo`, `brand_html`) that reference them are per-site data, not app code, so they must be set up manually on every new site (see step 4 below).
+- **Logo**: **not** included in this app. The logo images (`hpy2.png`, `lobar.png`) and the 4 `Website Settings` fields that reference them (`app_logo`, `brand_html`, `splash_image`, `banner_image`) are per-site data, not app code, so they must be set up manually on every new site (see step 4 below). Missing `splash_image`/`banner_image` is easy to overlook since they don't show up in the desk navbar — check the login/loading splash screen specifically to confirm all 4 are set.
 
 ### Installation (new site)
 
@@ -38,6 +38,8 @@ bench --site $SITE_NAME clear-cache
    ws = frappe.get_single("Website Settings")
    ws.app_logo = "/files/hpy2.png"
    ws.brand_html = "<img src='/files/lobar.png' style='max-width: 100px;'>"
+   ws.splash_image = "/files/hpy2.png"
+   ws.banner_image = "/files/lobar.png"
    ws.save(ignore_permissions=True)
    frappe.db.commit()
    ```
