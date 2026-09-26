@@ -6,7 +6,7 @@ HPY custom branding and tweaks for ERPNext v15 (navbar theme, translations that 
 
 - **Colors**: orange navbar gradient (`hpy_theme.bundle.css`, `hpy_web.bundle.css`) — applied automatically to desk and website once installed and built.
 - **Text/captions**: translation overrides in `hpy/translations/en.csv` rename a few default strings, e.g. "ERPNext Settings" → "HPY Settings", "ERPNext Integrations" → "HPY Integrations" — applied automatically once installed.
-- **Logo**: **not** included in this app. The logo images (`hpy2.png`, `lobar.png`) and the 4 `Website Settings` fields that reference them (`app_logo`, `brand_html`, `splash_image`, `banner_image`) are per-site data, not app code, so they must be set up manually on every new site (see step 4 below). Missing `splash_image`/`banner_image` is easy to overlook since they don't show up in the desk navbar — check the login/loading splash screen specifically to confirm all 4 are set.
+- **Logo**: **not** included in this app. The default HPY logo (`hpy2.png`) and the 4 `Website Settings` fields that reference it (`app_logo`, `brand_html`, `splash_image`, `banner_image`) are per-site data, not app code, so they must be set up manually on every new site (see step 4 below). Missing `splash_image`/`banner_image` is easy to overlook since they don't show up in the desk navbar — check the login/loading splash screen specifically to confirm all 4 are set. Note: `hpy2.png` is the generic HPY logo, safe to reuse as the default for any new site — do not reuse a client-specific logo (e.g. a customer's own brand mark) as the default; set that only on that one client's site.
 
 ### Installation (new site)
 
@@ -20,26 +20,25 @@ bench --site $SITE_NAME clear-cache
 
 **Step 4 — logo (manual, per site):**
 
-1. Copy the logo files into the new site's public files folder:
+1. Copy the logo file into the new site's public files folder:
    ```bash
-   cp hpy2.png lobar.png sites/$SITE_NAME/public/files/
-   chown frappe:frappe sites/$SITE_NAME/public/files/hpy2.png sites/$SITE_NAME/public/files/lobar.png
+   cp hpy2.png sites/$SITE_NAME/public/files/
+   chown frappe:frappe sites/$SITE_NAME/public/files/hpy2.png
    ```
-2. Register them as `File` records and point `Website Settings` at them:
+2. Register it as a `File` record and point `Website Settings` at it:
    ```bash
    bench --site $SITE_NAME console
    ```
    ```python
    import frappe
-   for fname, path in [("hpy2.png", "/files/hpy2.png"), ("lobar.png", "/files/lobar.png")]:
-       if not frappe.db.exists("File", {"file_url": path}):
-           frappe.get_doc({"doctype": "File", "file_name": fname, "file_url": path, "is_private": 0}).insert(ignore_permissions=True)
+   if not frappe.db.exists("File", {"file_url": "/files/hpy2.png"}):
+       frappe.get_doc({"doctype": "File", "file_name": "hpy2.png", "file_url": "/files/hpy2.png", "is_private": 0}).insert(ignore_permissions=True)
 
    ws = frappe.get_single("Website Settings")
    ws.app_logo = "/files/hpy2.png"
-   ws.brand_html = "<img src='/files/lobar.png' style='max-width: 100px;'>"
+   ws.brand_html = "<img src='/files/hpy2.png' style='max-width: 100px;'>"
    ws.splash_image = "/files/hpy2.png"
-   ws.banner_image = "/files/lobar.png"
+   ws.banner_image = "/files/hpy2.png"
    ws.save(ignore_permissions=True)
    frappe.db.commit()
    ```
